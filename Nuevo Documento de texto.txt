@@ -1,0 +1,120 @@
+void	*ft_read_more(int fd, char *saved)
+{}
+
+int	ft_read_until_new_line(char *saved)
+{
+	int	i;
+
+	if (!saved)
+		return (-1);
+	i = 0;
+	while (saved[i])
+	{
+		if (saved[i] == '\n')
+		{
+			return(i);
+		}
+		i++;
+	}
+	return (-1);
+}
+
+
+
+char	*get_next_line(int fd)
+{
+	static char	*saved;
+	char		*output;
+
+	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
+		return (NULL);
+	output_len = ft_read_until_new_line(saved)
+	if (output_len >= 0)
+	{
+		output = ft_calloc(output_len + 2, sizeof(char)); // si dan las lineas meterlo en una variable
+			if (!output)
+				return (NULL);
+		ft_cpy_output(output, saved);
+		saved = ft_save_for_the_future(saved);
+		return (output);
+	}
+
+	output = ft_write_line(saved);
+	saved = ft_save_for_the_future(saved);
+	return (output);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+char	*ft_save_for_the_future(char *saved)
+{
+	char	*without_used;
+	int		i;
+	int		j;
+
+	i = 0;
+	while (saved[i] && saved[i] != '\n')
+		i++;
+	if (!saved[i])
+	{
+		free(saved);
+		return (NULL);
+	}
+	without_used = ft_calloc((ft_strlen(saved) - i + 1), sizeof(char));
+	i++;
+	j = 0;
+	while (saved[i])
+		without_used[j++] = saved[i++];
+	free(saved);
+	return (without_used);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	unsigned char	*tmp;
+	size_t			i;
+
+	if (!count || !size)
+		return (NULL);
+	tmp = malloc(count * size);
+	if (!tmp)
+		return (NULL);
+	i = 0;
+	while (i < (count * size))
+	{
+		tmp[i] = 0;
+		i++;
+	}
+	return (tmp);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = -1;
+	while (str[++i])
+		;
+	return (i);
+}
+
+void	ft_cpy_output(char *dst, const char *src)
+{
+	size_t	i;
+
+	i = 0;
+	while (src[i] != '\n')
+		dst[i] = src[i];
+	dst[i] = '\n';
+	dst[i + 1] = '\0';
+}
