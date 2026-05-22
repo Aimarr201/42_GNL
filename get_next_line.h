@@ -9,15 +9,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-char *ft_read_more(int fd, char *saved)
-int ft_read_until_new_line(char *saved)
-char *ft_craft_line(char *saved)
-char *ft_save_for_the_future(char *saved)
-char *get_next_line(int fd)
+char	*ft_save_for_the_future(char *saved);
+char	*ft_craft_line(char *saved);
+char	*ft_read_more(int fd, char *saved);
+char	*get_next_line(int fd);
 
-void ft_cpy_output(char *dst, const char *src)
-void *ft_calloc(size_t count, size_t size)
-size_t ft_strlen(const char *str)
-char *ft_strjoin(const char *s1, const char *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *str);
+char	*ft_strchr(const char *str, int chr);
+char	*ft_strdup(const char *original);
+char	*ft_free_strjoin(char *str1, char *str2);
 
 #endif
