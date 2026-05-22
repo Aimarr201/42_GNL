@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 16:30:29 by amendibi          #+#    #+#             */
-/*   Updated: 2026/05/22 16:40:51 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/05/22 17:06:18 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,18 @@ char	*get_next_line(int fd)
 	saved = ft_save_for_the_future(saved);
 	return (output);
 }
-/* int	main()
-{
-	// printf("%i\n", BUFFER_SIZE);
-	int fd;
-	char *result;
-	int i;
 
-	fd = open("lol2", O_RDONLY);
+/* #include <fcntl.h>
+#include <stdio.h>
+int	main()
+{
+	int		fd;
+	char	*result;
+	int		i;
+
+	printf("BUFFER_SIZE=%i\n", BUFFER_SIZE);
+
+	fd = open("texto.txt", O_RDONLY);
 	i = 1;
 	result = malloc(1);
 	while (result && fd != -1)
