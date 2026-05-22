@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amendibi <amendibi@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/22 16:30:29 by amendibi          #+#    #+#             */
+/*   Updated: 2026/05/22 16:40:51 by amendibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "get_next_line.h"
 
@@ -92,3 +103,25 @@ char	*get_next_line(int fd)
 	saved = ft_save_for_the_future(saved);
 	return (output);
 }
+/* int	main()
+{
+	// printf("%i\n", BUFFER_SIZE);
+	int fd;
+	char *result;
+	int i;
+
+	fd = open("lol2", O_RDONLY);
+	i = 1;
+	result = malloc(1);
+	while (result && fd != -1)
+	{
+		free(result);
+		result = get_next_line(fd);
+		if (!result)
+			break ;
+		// printf("line %d: %s\n", i, result);
+		printf("%s", result);
+		i++;
+	}
+	close(fd);
+} */
